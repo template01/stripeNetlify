@@ -11,6 +11,10 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script:[
+      { src: 'https://checkout.stripe.com/checkout.js' }
+
     ]
   },
   mode: 'spa',

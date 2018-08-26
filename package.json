@@ -7,13 +7,19 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "netlifylambda": "netlify-lambda serve lambda-src",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "dotenv": "^6.0.0",
+    "netlify-lambda": "^0.4.0",
+    "nuxt": "^1.0.0",
+    "query-string": "^6.1.0",
+    "stripe": "^6.7.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
