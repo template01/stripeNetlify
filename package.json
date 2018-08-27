@@ -14,6 +14,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.1.1",
     "dotenv": "^6.0.0",
     "netlify-lambda": "^0.4.0",
     "nuxt": "^1.0.0",

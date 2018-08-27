@@ -1,6 +1,5 @@
 <template>
 <div class="">
-
   <button id="customButton">Purchase</button>
   <div id="messageBox">
     <h2></h2>
@@ -13,7 +12,7 @@ import uuid from 'uuid/v4';
 
 export default {
   mounted() {
-
+    console.log(process.env.STRIPE_PUBLISHABLE_KEY+'purchase')
 
     const amount = 1000;
     const $messageBox = document.getElementById('messageBox');
@@ -24,7 +23,7 @@ export default {
     }
 
     const handler = StripeCheckout.configure({
-      key: 'pk_test_GaZndeCzRWqKRqAEKMqObMnK',
+      key: process.env.STRIPE_PUBLISHABLE_KEY,
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
       locale: 'auto',
       closed: function() {
@@ -32,7 +31,7 @@ export default {
       },
       token: function(token) {
 
-        fetch(`http://localhost:9000/purchase`, {
+        fetch(process.env.LAMBDA_ENDPOINT, {
             method: 'POST',
             body: JSON.stringify({
               token,
