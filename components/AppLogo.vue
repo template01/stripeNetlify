@@ -12,6 +12,7 @@ import uuid from 'uuid/v4';
 
 export default {
   mounted() {
+    console.log(process)
     console.log(process.env.STRIPE_PUBLISHABLE_KEY+'purchase')
 
     const amount = 1000;
