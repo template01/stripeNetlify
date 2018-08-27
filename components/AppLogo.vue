@@ -12,8 +12,9 @@ import uuid from 'uuid/v4';
 
 export default {
   mounted() {
-    console.log(process)
-    console.log(process.env.STRIPE_PUBLISHABLE_KEY+'purchase')
+    // console.log(process.env.TEST)
+    console.log(process.env.stripePublicKeyNuxt)
+    console.log(process.env.stripePublicKeyNuxt+'purchase')
 
     const amount = 1000;
     const $messageBox = document.getElementById('messageBox');
@@ -24,7 +25,7 @@ export default {
     }
 
     const handler = StripeCheckout.configure({
-      key: process.env.STRIPE_PUBLISHABLE_KEY,
+      key: process.env.stripePublicKeyNuxt,
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
       locale: 'auto',
       closed: function() {
@@ -32,7 +33,7 @@ export default {
       },
       token: function(token) {
 
-        fetch(process.env.LAMBDA_ENDPOINT, {
+        fetch(process.env.lambdaEndpointNuxt+'purchase', {
             method: 'POST',
             body: JSON.stringify({
               token,

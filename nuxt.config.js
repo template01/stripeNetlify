@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   /*
    ** Headers of the page
@@ -35,10 +37,15 @@ module.exports = {
   loading: {
     color: '#3B8070'
   },
-  modules: [
-    // Simple usage
-    '@nuxtjs/dotenv',
-  ],
+  env: {
+    // TEST: process.env.STRIPE_SECRET_KEY,
+    stripePublicKeyNuxt: process.env.STRIPE_PUBLISHABLE_KEY,
+    lambdaEndpointNuxt: process.env.LAMBDA_ENDPOINT,
+},
+  // modules: [
+  //   // Simple usage
+  //   '@nuxtjs/dotenv',
+  // ],
   /*
    ** Build configuration
    */
